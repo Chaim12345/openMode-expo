@@ -36,6 +36,29 @@ yarn-error.*
 # typescript
 *.tsbuildinfo
 
-# generated native folders
+# generated native folders (CI will run prebuild)
 /ios
 /android
+
+# IDE
+.idea/
+.vscode/
+
+# OS
+*.swp
+*.swo
+
+# agents / skills
+.agents/
+.claude/
+.goose/
+.kilocode/
+.openhands/
+.pi/
+.qwen/
+skills/
+skills-lock.json
+
+# local artifacts
+docs/
+scripts/
