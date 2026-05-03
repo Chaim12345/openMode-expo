@@ -8,5 +8,5 @@ export const API_CONSTANTS = {
 export const APP_CONSTANTS = {
   APP_NAME: 'OpenMode',
   DEFAULT_HOST: '137.131.63.155',
-  DEFAULT_PORT: 4096,
+  DEFAULT_PORT: 4097,
 } as const;
