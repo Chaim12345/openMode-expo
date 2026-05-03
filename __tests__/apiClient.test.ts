@@ -2,7 +2,7 @@ import { getClient, updateBaseUrl } from '../src/core/network/apiClient';
 
 describe('apiClient', () => {
   beforeEach(() => {
-    updateBaseUrl('http://137.131.63.155:4096');
+    updateBaseUrl('https://chaim12345.duckdns.org:4097');
   });
 
   it('should update base URL', () => {

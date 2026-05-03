@@ -7,6 +7,6 @@ export const API_CONSTANTS = {
 
 export const APP_CONSTANTS = {
   APP_NAME: 'OpenMode',
-  DEFAULT_HOST: '137.131.63.155',
+  DEFAULT_HOST: 'chaim12345.duckdns.org',
   DEFAULT_PORT: 4097,
 } as const;

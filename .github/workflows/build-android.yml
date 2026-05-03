@@ -30,6 +30,18 @@ jobs:
       - name: Expo prebuild
         run: npx expo prebuild --platform android --clean
 
+      - name: Inject network security config into Android project
+        run: |
+          # Copy network_security_config.xml to Android res/xml/
+          mkdir -p android/app/src/main/res/xml
+          cp assets/network_security_config.xml android/app/src/main/res/xml/network_security_config.xml
+
+          # Add android:networkSecurityConfig attribute to <application> tag in AndroidManifest.xml
+          sed -i 's/<application /<application android:networkSecurityConfig="@xml\/network_security_config" /' android/app/src/main/AndroidManifest.xml
+
+          # Verify the change
+          grep -n 'networkSecurityConfig' android/app/src/main/AndroidManifest.xml
+
       - name: Validate Gradle wrapper
         working-directory: android
         run: chmod +x ./gradlew

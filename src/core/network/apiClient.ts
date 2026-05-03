@@ -1,6 +1,6 @@
 import type { Session, Part, Message, SubtaskPartInput, TextPartInput } from '@opencode-ai/sdk';
 
-let baseUrl = 'http://137.131.63.155:4096';
+let baseUrl = 'https://chaim12345.duckdns.org:4097';
 
 export function updateBaseUrl(url: string) {
   baseUrl = url;

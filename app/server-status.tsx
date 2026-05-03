@@ -19,7 +19,7 @@ export default function ServerStatusPage() {
     try {
       const client = getClient();
       // No client.server namespace — use fetch for health check
-      const baseUrl = (client as any)._options?.baseUrl || 'http://137.131.63.155:4096';
+      const baseUrl = (client as any)._options?.baseUrl || 'https://chaim12345.duckdns.org:4097';
       const res = await fetch(baseUrl);
       const data = await res.json();
       setServers(Array.isArray(data) ? data : [{ name: 'OpenCode Server', status: res.ok ? 'Connected' : 'Error', ...data }]);

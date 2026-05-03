@@ -23,16 +23,17 @@ interface AppState {
 export const useAppStore = create<AppState>()(
   persist(
     (set, get) => ({
-      serverHost: '137.131.63.155',
-      serverPort: 4096,
+  serverHost: 'chaim12345.duckdns.org',
+  serverPort: 4097,
       themeMode: 'system' as ThemeMode,
       isConnected: false,
       basicAuthEnabled: false,
       basicAuthUsername: '',
       basicAuthPassword: '',
-      setServerConfig: (host, port) => {
-        set({ serverHost: host, serverPort: port });
-        updateBaseUrl(`http://${host}:${port}`);
+  setServerConfig: (host, port) => {
+      set({ serverHost: host, serverPort: port });
+      const protocol = port === 443 ? 'https' : (port === 4097 ? 'https' : 'http');
+      updateBaseUrl(`${protocol}://${host}:${port}`);
         storageService.setServerHost(host);
         storageService.setServerPort(String(port));
       },
@@ -54,20 +55,20 @@ export const useAppStore = create<AppState>()(
       loadServerConfig: async () => {
         const host = await storageService.getServerHost();
         const portStr = await storageService.getServerPort();
-        const port = portStr ? parseInt(portStr, 10) : 4096;
+        const port = portStr ? parseInt(portStr, 10) : 4097;
         const theme = (await storageService.getThemeMode()) as ThemeMode | null;
         const basicEnabled = await storageService.getBasicAuthEnabled();
         const basicUser = await storageService.getBasicAuthUsername();
         const basicPass = await storageService.getBasicAuthPassword();
         set({
-          serverHost: host ?? '137.131.63.155',
+          serverHost: host ?? 'chaim12345.duckdns.org',
           serverPort: port,
           themeMode: theme ?? 'system',
           basicAuthEnabled: basicEnabled,
           basicAuthUsername: basicUser ?? '',
           basicAuthPassword: basicPass ?? '',
         });
-        updateBaseUrl(`http://${host ?? '137.131.63.155'}:${port}`);
+        updateBaseUrl(`https://${host ?? 'chaim12345.duckdns.org'}:${port}`);
       },
     }),
     {

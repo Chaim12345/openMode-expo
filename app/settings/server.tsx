@@ -69,7 +69,7 @@ export default function ServerSettingsPage() {
           style={[styles.input, { color: colors.text, backgroundColor: colors.card, borderColor: colors.border }]}
           value={host}
           onChangeText={setHost}
-          placeholder="137.131.63.155"
+          placeholder="chaim12345.duckdns.org"
           placeholderTextColor={colors.textSecondary}
         />
 
@@ -78,7 +78,7 @@ export default function ServerSettingsPage() {
           style={[styles.input, { color: colors.text, backgroundColor: colors.card, borderColor: colors.border }]}
           value={port}
           onChangeText={setPort}
-          placeholder="4096"
+          placeholder="4097"
           placeholderTextColor={colors.textSecondary}
           keyboardType="numeric"
         />
