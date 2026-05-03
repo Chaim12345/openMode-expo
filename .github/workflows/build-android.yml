@@ -34,13 +34,13 @@ jobs:
         working-directory: android
         run: chmod +x ./gradlew
 
-      - name: Build debug APK with embedded JS bundle
+      - name: Build release APK (standalone, no Metro required)
         working-directory: android
-        run: ./gradlew assembleDebug -PbundleInDebug=true
+        run: ./gradlew assembleRelease
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
-          name: openmode-debug-apk
-          path: android/app/build/outputs/apk/debug/app-debug.apk
+          name: openmode-release-apk
+          path: android/app/build/outputs/apk/release/app-release.apk
           retention-days: 30
