@@ -22,8 +22,9 @@
         "backgroundColor": "#ffffff"
       },
       "edgeToEdgeEnabled": true,
-      "predictiveBackGestureEnabled": false,
-      "package": "com.anonymous.openModeexpo"
+        "predictiveBackGestureEnabled": false,
+        "usesCleartextTraffic": true,
+        "package": "com.anonymous.openModeexpo"
     },
     "web": {
       "favicon": "./assets/favicon.png",
